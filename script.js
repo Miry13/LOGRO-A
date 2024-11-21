@@ -1,6 +1,6 @@
 const contacts = []; 
 
-    function guardarRegistro() {
+    function guardarContactos() {
       const nombre = document.getElementById("nombre").value;
       const telefono = document.getElementById("telefono").value;
       const email = document.getElementById("email").value;
@@ -18,8 +18,8 @@ const contacts = [];
           <td>${email}</td>
           <td>${etiqueta}</td>
           <td>
-            <button class="btn btn-warning btn-sm me-1" onclick="editarRegistro(this)">Editar</button>
-            <button class="btn btn-danger btn-sm" onclick="eliminarRegistro(this)">Eliminar</button>
+            <button class="btn btn-warning btn-sm me-1" onclick="editarContactos(this)">Editar</button>
+            <button class="btn btn-danger btn-sm" onclick="eliminarContactos(this)">Eliminar</button>
           </td>
         `;
 
@@ -32,7 +32,7 @@ const contacts = [];
       }
     }
 
-    function eliminarRegistro(button) {
+    function eliminarContactos(button) {
       const miru = button.parentNode.parentNode;
       miru.parentNode.removeChild(miru);
 
@@ -40,7 +40,7 @@ const contacts = [];
       if (index > -1) contacts.splice(index, 1);
     }
 
-    function editarRegistro(button) {
+    function editarContactos(button) {
       const miru = button.parentNode.parentNode;
 
       document.getElementById("nombre").value = miru.cells[0].innerText;
@@ -48,7 +48,7 @@ const contacts = [];
       document.getElementById("email").value = miru.cells[2].innerText;
       document.getElementById("etiqueta").value = miru.cells[3].innerText;
 
-      eliminarRegistro(button);
+      eliminarContactos(button);
     }
 
     document.getElementById("searchBar").addEventListener("input", function() {
